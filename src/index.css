@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply min-h-screen bg-ink-950 font-sans text-ink-50 antialiased;
+    background-image:
+      radial-gradient(1200px 500px at 50% -200px, rgba(18, 180, 101, 0.14), transparent 70%),
+      radial-gradient(800px 400px at 100% 0, rgba(18, 180, 101, 0.05), transparent 70%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-wide;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-400 ring-offset-2 ring-offset-ink-950;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-white/[0.06] bg-ink-900/80 shadow-card backdrop-blur;
+  }
+
+  .card-pad {
+    @apply p-4 sm:p-5;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400;
+  }
+
+  .section-title {
+    @apply font-display text-xl font-bold uppercase tracking-wide text-ink-50;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[44px] select-none items-center justify-center gap-2 rounded-xl px-4 text-sm font-semibold transition duration-150 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-45 disabled:active:scale-100;
+  }
+
+  .btn-sm {
+    @apply min-h-[36px] rounded-lg px-3 text-xs;
+  }
+
+  .btn-lg {
+    @apply min-h-[52px] px-6 text-base;
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 text-white shadow-[0_8px_24px_-10px_rgba(18,180,101,0.8)] hover:bg-brand-500;
+  }
+
+  .btn-secondary {
+    @apply bg-white/[0.06] text-ink-100 ring-1 ring-inset ring-white/10 hover:bg-white/[0.1];
+  }
+
+  .btn-ghost {
+    @apply text-ink-300 hover:bg-white/[0.06] hover:text-ink-50;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-500;
+  }
+
+  .btn-danger-ghost {
+    @apply text-red-300 hover:bg-red-500/10 hover:text-red-200;
+  }
+
+  .btn-gold {
+    @apply bg-amber-400 text-ink-950 hover:bg-amber-300;
+  }
+
+  .input {
+    @apply min-h-[44px] w-full rounded-xl border border-white/10 bg-ink-950/60 px-3.5 text-sm text-ink-50 placeholder:text-ink-500 transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+
+  .stat-num {
+    @apply font-display font-bold tabular-nums tracking-tight;
+  }
+
+  .table-head {
+    @apply px-3 py-2.5 text-left text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-400;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
